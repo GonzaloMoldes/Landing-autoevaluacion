@@ -1251,31 +1251,21 @@
     `).join('');
   }
 
-  function enviarWhatsApp() {
-    const empresa  = document.getElementById('r-empresa').textContent || '';
-    const score    = document.getElementById('score-num').textContent || '';
-    const nivel    = document.getElementById('score-title').textContent || '';
-    const nombre   = document.getElementById('c-nombre') ? document.getElementById('c-nombre').value : '';
-    const telefono = document.getElementById('c-telefono') ? document.getElementById('c-telefono').value : '';
-
-    const mensaje = encodeURIComponent(
-      '👋 Hola, acabo de hacer la evaluación de riesgo operativo en vuestra web.' +
-      '
-
-🏭 Empresa: ' + empresa +
-      '
-👤 Nombre: ' + nombre +
-      '
-📞 Teléfono: ' + telefono +
-      '
-📊 Score: ' + score + '/100' +
-      '
-⚠️ Nivel de riesgo: ' + nivel +
-      '
-
-Me gustaría que me llamarais para comentar los resultados.'
-    );
-    window.open('https://wa.me/34671887372?text=' + mensaje, '_blank');
+    function enviarWhatsApp() {
+    var empresa  = document.getElementById('r-empresa').textContent || '';
+    var score    = document.getElementById('score-num').textContent || '';
+    var nivel    = document.getElementById('score-title').textContent || '';
+    var nombre   = document.getElementById('c-nombre') ? document.getElementById('c-nombre').value : '';
+    var telefono = document.getElementById('c-telefono') ? document.getElementById('c-telefono').value : '';
+    var nl = '\n';
+    var texto = '👋 Hola, acabo de hacer la evaluación de riesgo operativo en vuestra web.' + nl + nl +
+      '🏭 Empresa: ' + empresa + nl +
+      '👤 Nombre: ' + nombre + nl +
+      '📞 Teléfono: ' + telefono + nl +
+      '📊 Score: ' + score + '/100' + nl +
+      '⚠️ Nivel de riesgo: ' + nivel + nl + nl +
+      'Me gustaría que me llamarais para comentar los resultados.';
+    window.open('https://wa.me/34671887372?text=' + encodeURIComponent(texto), '_blank');
   }
 </script>
 </body>
