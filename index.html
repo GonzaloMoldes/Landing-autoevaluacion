@@ -1307,6 +1307,13 @@
       mode: 'no-cors'
     }).then(() => {
       console.log('Lead enviado correctamente');
+      // GA4 — evento conversión formulario diagnóstico
+      if (typeof gtag === 'function') {
+        gtag('event', 'formulario_enviado', {
+          'event_category': 'diagnostico',
+          'event_label': 'Formulario diagnóstico completado'
+        });
+      }
     }).catch(err => console.warn('Error al enviar lead:', err));
     // ───────────────────────────────────────────────────────────
 
@@ -1527,19 +1534,6 @@ document.addEventListener('click', function(e) {
   for (var i = 0; i < 40; i++) sparks.push(new Spark(e.clientX, e.clientY));
 });
 </script>
-<!-- Connected Sites -->
-<script>
-if(window._mtmReady){ 
- console.error('Connected sites script already loaded. You might have it dupplicated.'); 
-} else { 
-window._mtmReady=true; 
-var _mtm = window._mtm = window._mtm || [];
-_mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
-var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-g.async=true; g.defer=true; g.src='https://egoi.site/1782951_gmvsolutions.es.js?v='+new Date().getTime();
-s.parentNode.insertBefore(g,s);
-}
-</script>
-<!-- End Connected Sites -->
+
 </body>
 </html>
